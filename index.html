@@ -37,10 +37,15 @@ if (device.match(/iPhone|iPad|iPod/i)) {
 
 else if(device.match(/Android/i)){
 
-  window.location.replace(googlePlayStoreLink);
+    window.location.replace(appLinkPlayStore);
+
+  // Set a timeout in case the app is not installed
+  setTimeout(function() {
+    // If the app is not installed, redirect to the App Store
+    window.location.replace(googlePlayStoreLink);
+  }, 1000);
   
 }
-
 
 </script>
 
