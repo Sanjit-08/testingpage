@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>My First JavaScript</h2>
+
+
+
+<p id="demo"></p>
+
+<script>
+
+let device = window.navigator.userAgent;
+
+/* if(device.includes("Android")){
+window.location.replace("https://play.google.com/store/apps/details?id=com.fankonnect.app");
+}
+
+else if(device.includes("iPhone")){
+window.location.replace("https://itunes.apple.com/in/app/fankonnect/id6444557781");
+} */
+
+var appLink = "fankonnect://itunes.apple.com/in/app/fankonnect/id6444557781";
+var appStoreLink = "clp://itunes.apple.com/in/app/fankonnect/id6444557781";
+var googlePlayStoreLink="clp://play.google.com/store/apps/details?id=com.fankonnect.app"
+
+if (device.match(/iPhone|iPad|iPod/i)) {
+  // Try to open the app with the deep link
+  window.location.replace(appLink);
+
+  // Set a timeout in case the app is not installed
+  setTimeout(function() {
+    // If the app is not installed, redirect to the App Store
+    window.location.replace(appStoreLink);
+  }, 1000);
+}
+
+else if(device.match(/Android/i)){
+
+  window.location.replace(googlePlayStoreLink);
+  
+}
+
+
+</script>
+
+</body>
+</html> 
